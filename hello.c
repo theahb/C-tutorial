@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
     printf(" %d: %s\n", i, argv[i]);
   }
   
-  float f;
+  float f = 0;
   printf("f = %f\n", f);
   f = 42.0;
   printf("f = %f\n", f);
@@ -44,13 +44,23 @@ int main(int argc, char *argv[]) {
   if(argc >1) {
     int clen = atoi(argv[1]);
 
+  // allocate Cs memory
   C = malloc(clen * sizeof(int));
 
   // fill C and print
   for(i = 0; i < clen; i++) {
     C[i] = i;
     printf("C[%d] = %d\n", i, C[i]);
+   }
+  free(C);
   }
-  }
+
+  //read files
+  float a = 0.;
+  float b = 0.;
+  float c = 0.;
+  read("input", &a, &b, &c);
+
+ 
   return EXIT_SUCCESS;
 }
